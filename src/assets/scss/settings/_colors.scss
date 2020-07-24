@@ -1,0 +1,32 @@
+$green-dark: #088a0d;
+// $green-dark:#22a301;
+// $green-dark:#86c232;
+// $green-dark:#1ba221;
+
+$blue: #2191fb;
+$second: #666666;
+$red: #c12a2f;
+$dark-red: #b50000;
+$yellow: #e5d352;
+$green: #128023;
+$gray-light: #f0f3f6;
+$gray-dark: #383d3b;
+$white: #fff;
+$gray-500: #adb5bd;
+$background: #e9e9e9;
+$background-light: #faf9f9;
+$title-color: #648a66;
+
+
+$primary: $dark-red;
+$secondary: $second;
+$success: $green;
+$info: $blue;
+$warning: $yellow;
+$danger: $red;
+$light: $gray-light;
+$dark: $gray-dark;
+$background: $background;
+
+$theme-colors: (("white": #fff,
+                "background": #e9e9e9));

@@ -1,0 +1,58 @@
+<div class="container ac-home">
+    <div class="row">
+        <div class="ac-fuel">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Fuel (l)</th>
+                        <th scope="col">Odo counter (km)</th>
+                        <th scope="col">Total Cost</th>
+                        <th scope="col">Price (l)</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let cars of carsArray">
+                    <tr>
+                        <td>{{cars.fullName}}</td>
+                        <td>{{cars.fullName}}</td>
+                        <td>{{cars.fullName}}</td>
+                        <td>{{cars.fullName}}</td>
+                        <td>{{cars.fullName}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <form [formGroup]="this.form">
+            <input type="hidden" formControlName="$key">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input formControlName="fullName" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" formControlName="email" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Submit" (click)="onSubmit()">
+            </div>
+        </form>
+    </div>
+    <!-- <div class="row">
+        <table>
+            <thead>
+                <th>Name</th>
+                <th>Email</th>
+                <th></th>
+            </thead>
+            <tbody *ngFor="let cars of carsArray">
+
+                <td>{{cars.fullName}}</td>
+                <td>{{cars.email}}</td>
+                <td>
+                    <button (click)="populateCars(cars)">Edit</button>
+                    <button (click)="getData()">Delete</button>
+                </td>
+            </tbody>
+        </table>
+    </div> -->
+</div>

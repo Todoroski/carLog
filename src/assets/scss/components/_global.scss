@@ -1,0 +1,17 @@
+.#{$prefix} {
+    &-bg {
+        margin: 0;
+        padding: 0;
+    }
+
+    &-image {
+        z-index: -999;
+        min-height: 100%;
+        min-width: 1024px;
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+}

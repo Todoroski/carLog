@@ -1,0 +1,31 @@
+.#{$prefix} {
+    &-header{
+        width: 990px;
+        background: #b50000;
+        padding: 0;
+        height: 50px;
+        &-container{
+            max-width: 990px;
+        }
+    }
+    &-social{
+        float: right;
+        display: flex;
+        list-style: none;
+        margin-left: 75%;
+        margin-top: auto;
+        li{
+            margin-left: 10px;
+            margin-top: 15px;
+        }
+    }
+    &-header1{
+        width: 990px;
+        background: #191919;
+        height: 80px;
+    }
+    &-navbar{
+        width: 990px;
+        background: #b50000;
+    }
+}
