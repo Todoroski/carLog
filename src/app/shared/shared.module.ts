@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { SharedRoutingModule } from './shared-routing.module';
 import { HeaderModule } from '../shared/header/header.module';
-import { FuelLogPopupComponent } from './fuel-log-popup/fuel-log-popup.component';
 
 
 @NgModule({
-  declarations: [FuelLogPopupComponent],
+  declarations: [],
   imports: [
     CommonModule,
     SharedRoutingModule,

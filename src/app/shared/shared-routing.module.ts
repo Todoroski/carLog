@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { fuelLogRoutes } from './fuel-log-popup/fuel-log-popup-routing.module';
 
 
-const routes: Routes = [];
+export const sharedRoutes: Routes = [
+  ...fuelLogRoutes
+];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(sharedRoutes)],
   exports: [RouterModule]
 })
 export class SharedRoutingModule { }
