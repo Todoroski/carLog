@@ -20,7 +20,7 @@ export class FuelLogPopupComponent implements OnInit {
   fuelLogList;
   fuelLogData: FuelLog;
   submitted: boolean;
-  fuelLogArray = [];
+  fuelLogArray: FuelLog [];
   id: number;
   avgConsumption: number;
   fuelData;

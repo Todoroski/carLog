@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
 
   fuelLogList;
   submitted: boolean;
-  fuelLogArray: FuelLog[] = [];
+  fuelLogArray: FuelLog[];
   modalRef: BsModalRef;
   template: TemplateRef<any>;
   id;
@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit {
   lastFuelConsumption: number;
   lastFuelPrice: number;
   lastFillUp: number;
-  logArray = [];
   max = 5;
   loading: boolean;
   showMore: boolean;

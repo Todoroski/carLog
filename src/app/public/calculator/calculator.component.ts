@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FuelLogService } from '../../services/fuel-log.service';
+import { FuelLog } from 'src/app/model/fuelLog';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { FuelLogService } from '../../services/fuel-log.service';
 export class CalculatorComponent implements OnInit {
 
   avgCounter: number;
-  fuelLogArray = [];
+  fuelLogArray: FuelLog [];
   avgConsumption;
   distance;
   price;

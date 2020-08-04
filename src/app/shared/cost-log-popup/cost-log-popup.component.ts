@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { ToastrService } from 'ngx-toastr';
 import { CostLogService } from 'src/app/services/cost-log.service';
+import { FuelLog } from 'src/app/model/fuelLog';
 
 @Component({
   selector: 'app-cost-log-popup',
@@ -16,7 +17,7 @@ export class CostLogPopupComponent implements OnInit {
               private costLogService: CostLogService) { }
 
   costLogList: AngularFireList<any>;
-  costLogArray = [];
+  costLogArray: FuelLog [];
   id: number;
 
   form = new FormGroup({

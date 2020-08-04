@@ -3,6 +3,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { ToastrService } from 'ngx-toastr';
 import { CostLogService } from 'src/app/services/cost-log.service';
+import { CostLog } from '../../model/costLog';
 import { CostLogPopupComponent } from '../../shared/cost-log-popup/cost-log-popup.component';
 
 
@@ -16,18 +17,17 @@ export class CostLogComponent implements OnInit {
   max = 5;
   costLogList: AngularFireList<any>;
   submitted: boolean;
-  costLogArray = [];
+  costLogArray: CostLog [];
   id;
   avgConsumption: number;
   modalRef: BsModalRef;
   template: TemplateRef<any>;
   loading: boolean;
   showMore: boolean;
-  searchData;
-  nesto;
+  searchData: string;
 
   constructor(private firebase: AngularFireDatabase, private toastr: ToastrService,
-    private costLogService: CostLogService, private modalService: BsModalService) { }
+              private costLogService: CostLogService, private modalService: BsModalService) { }
 
   ngOnInit() {
     this.loading = true;
