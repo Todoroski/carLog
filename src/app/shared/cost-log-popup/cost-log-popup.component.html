@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h4 class="modal-title pull-left">Add Fuel Log</h4>
+    <h4 class="modal-title pull-left">Add Cost Log</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
         <span aria-hidden="true">&times;</span>
     </button>
@@ -10,8 +10,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="odoCounter">Odo counter(km)</label>
-                <input type="number" formControlName="odoCounter" class="form-control" id="odoCounter"
-                    placeholder="Odo counter(km)" >
+                <input type="number" formControlName="odoCounter" class="form-control" id="odoCounter" placeholder="Odo counter(km)" >
                 <div *ngIf="form.controls['odoCounter'].invalid && (form.controls['odoCounter'].dirty || form.controls['odoCounter'].touched)"
                     class="alert-danger">
                     <div *ngIf="form.controls['odoCounter'].errors.required">
@@ -20,37 +19,28 @@
                 </div>
             </div>
             <div class="form-group col-md-6">
-                <label for="fuel">Fuel(l)</label>
-                <input type="number" formControlName="fuel" class="form-control" id="fuel" placeholder="Fuel(l)"
-                    >
-                <div *ngIf="form.controls['fuel'].invalid && (form.controls['fuel'].dirty || form.controls['fuel'].touched)"
+                <label for="fuel">Title</label>
+                <input type="text" formControlName="title" class="form-control" id="fuel" placeholder="Title" >
+                <div *ngIf="form.controls['title'].invalid && (form.controls['title'].dirty || form.controls['title'].touched)"
                     class="alert-danger">
-                    <div *ngIf="form.controls['fuel'].errors.required">
-                        Fuel(l) is required.
+                    <div *ngIf="form.controls['title'].errors.required">
+                        Title is required.
                     </div>
                 </div>
             </div>
             <div class="form-group col-md-6">
-                <label for="totalCost">Total Cost</label>
-                <input type="number" formControlName="cost" class="form-control" id="totalCost" placeholder="Total Cost"
-                    >
-                <div *ngIf="form.controls['cost'].invalid && (form.controls['cost'].dirty || form.controls['cost'].touched)"
+                <label for="totalCost">Cost</label>
+                <input type="number" formControlName="totalCost" class="form-control" id="totalCost" placeholder="Cost" >
+                <div *ngIf="form.controls['totalCost'].invalid && (form.controls['totalCost'].dirty || form.controls['totalCost'].touched)"
                     class="alert-danger">
-                    <div *ngIf="form.controls['cost'].errors.required">
-                        Total Cost is required.
+                    <div *ngIf="form.controls['totalCost'].errors.required">
+                        Cost is required.
                     </div>
                 </div>
             </div>
             <div class="form-group col-md-6">
-                <label for="price">Price(l)</label>
-                <input type="number" formControlName="price" class="form-control" id="price" placeholder="Price(l)"
-                    >
-                <div *ngIf="form.controls['price'].invalid && (form.controls['price'].dirty || form.controls['price'].touched)"
-                    class="alert-danger">
-                    <div *ngIf="form.controls['price'].errors.required">
-                        Price(l) is required.
-                    </div>
-                </div>
+                <label for="price">Note</label>
+                <input type="textarea" formControlName="note" class="form-control" id="price" placeholder="Note">
             </div>
             <div class="form-group col-md-6">
                 <label for="date">Date</label>
@@ -63,7 +53,6 @@
                 </div>
             </div>
         </div>
-        <input type="submit" class="btn btn-dark float-right mb-2" value="Save"
-            (click)="onSubmit()">
+        <input type="submit" class="btn btn-dark float-right mb-2" value="Save" (click)="onSubmit()">        
     </form>
 </div>

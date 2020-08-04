@@ -1,1 +1,58 @@
-<p>cost-log works!</p>
+<div class="container ac-cost">
+    <div class="row ">
+        <div *ngIf="loading" class="d-flex justify-content-center ac-cost-loader">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div class="ac-cost-cards col-lg-5 col-md-4 col-sm-10" *ngIf="!loading">
+            <h3>Cost Logs</h3>
+            <div><img src="../../../assets/plusSign.png" alt="" class="ac-cost-add" (click)="addCostLog()"
+                    data-toggle="tooltip" data-placement="top" title="Add New Cost"></div>
+            <div class="tile" *ngFor="let costLog of costLogArray  | slice:0:[max]">
+                <div class="wrapper">
+                    <div class="header"><i class='fas fa-gas-pump' style='font-size:35px;color:#383d3b'></i></div>
+                    <div class="stats">
+                        <div>
+                            <strong>Odo Counter</strong>
+                            {{costLog.odoCounter}}
+                        </div>
+                        <div>
+                            <strong>Title</strong>
+                            {{costLog.title}}
+                        </div>
+                        <div>
+                            <strong>Cost:</strong> {{costLog.totalCost}} &euro;
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <div>
+                            <strong>Note</strong>
+                            {{costLog.note}}
+                        </div>
+                        <div style="font-size: 13px;">
+                            <strong>Date</strong>
+                            {{costLog.date}}
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <a class="Cbtn Cbtn-primary" (click)="addCostLog(costLog)">Edit</a>
+                        <a class="Cbtn Cbtn-danger" (click)="openModal(template, costLog.$key)">Delete</a>
+                    </div>
+                </div>
+            </div>
+            <button *ngIf="showMore" class="ac-cost-more btn btn-light" (click)="toggle()">Show more</button>
+        </div>
+    </div>
+</div>
+
+<ng-template #template>
+    <div class="modal-body text-center modal-template">
+        <div class="modal-header">
+            <h5 class="modal-title">Delete Cost Log</h5>
+        </div>
+        <p>Are you sure you want to delete cost log?</p>
+        <button type="button" class="btn btn-dark ac-home-modalBtn" (click)="decline()">No</button>
+        <button type="button" class="btn btn-primary ac-home-modalBtn" (click)="deleteLog()">Yes</button>
+    </div>
+</ng-template>

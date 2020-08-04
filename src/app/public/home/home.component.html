@@ -1,58 +1,89 @@
 <div class="container ac-home">
     <div class="row">
-        <div class="ac-fuel">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Fuel (l)</th>
-                        <th scope="col">Odo counter (km)</th>
-                        <th scope="col">Total Cost</th>
-                        <th scope="col">Price (l)</th>
-                        <th scope="col">Date</th>
-                    </tr>
-                </thead>
-                <tbody *ngFor="let cars of carsArray">
-                    <tr>
-                        <td>{{cars.fullName}}</td>
-                        <td>{{cars.fullName}}</td>
-                        <td>{{cars.fullName}}</td>
-                        <td>{{cars.fullName}}</td>
-                        <td>{{cars.fullName}}</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div *ngIf="loading" class="d-flex justify-content-center ac-home-loader">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
         </div>
-        <form [formGroup]="this.form">
-            <input type="hidden" formControlName="$key">
-            <div class="form-group">
-                <label>Full Name</label>
-                <input formControlName="fullName" class="form-control">
+        <div class="ac-home-cards col-lg-5 col-md-4 col-sm-10" *ngIf="!loading">
+            <h3>Fuel Logs</h3>
+            <div><img src="../../../assets/plusSign.png" alt="" class="ac-home-add" (click)="addFIllUp()"
+                    data-toggle="tooltip" data-placement="top" title="Add Fill Up"></div>
+            <div class="tile" *ngFor="let fuelLog of fuelLogArray  | slice:0:[max]">
+                <div class="wrapper">
+                    <div class="header"><i class='fas fa-gas-pump' style='font-size:35px;color:#383d3b'></i></div>
+                    <div class="stats">
+                        <div>
+                            <strong>Odo Counter</strong>
+                            {{fuelLog.odoCounter}}
+                        </div>
+                        <div>
+                            <strong>Fuel(l)</strong>
+                            {{fuelLog.fuel}}
+                        </div>
+                        <div>
+                            <strong>Total Cost:</strong> {{fuelLog.cost}} &euro;
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <div>
+                            <strong>Price(l)</strong>
+                            {{fuelLog.price}} &euro;
+                        </div>
+                        <div style="font-size: 13px;">
+                            <strong>Date</strong>
+                            {{fuelLog.date}}
+                        </div>
+                        <div>
+                            <strong>l/100km</strong>
+                            {{fuelLog.avgConsumption}}
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <a class="Cbtn Cbtn-primary" (click)="addFIllUp(fuelLog)">Edit</a>
+                        <a class="Cbtn Cbtn-danger" (click)="openModall(template, fuelLog.$key)">Delete</a>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" formControlName="email" class="form-control">
+            <button *ngIf="showMore" class="ac-home-more btn btn-light" (click)="toggle()">Show more</button>
+        </div>
+        <div class="ac-home-cards col-lg-4 col-md-4 col-sm-10" *ngIf="!loading">
+            <h3>Statistics</h3>
+            <div class="tile">
+                <div class="wrapper">
+                    <div class="header"><i class="fa fa-bar-chart" style='font-size:35px;color:#383d3b'></i></div>
+                    <div class="stats">
+                        <div>
+                            <strong>Average fuel consumption</strong>
+                            {{avgConsumption}} l/100 km
+                        </div>
+                        <div>
+                            <strong>Last Fuel Consumption</strong>
+                            {{fuelLogArray[0].avgConsumption}} l/100km
+                        </div>
+                        <div>
+                            <strong>Last Fuel Price</strong>
+                            {{fuelLogArray[0].price}} &euro;
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <div>
+                            <strong>Last Fill Up</strong>
+                            {{lastFillUp}} l
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit" (click)="onSubmit()">
-            </div>
-        </form>
+        </div>
     </div>
-    <!-- <div class="row">
-        <table>
-            <thead>
-                <th>Name</th>
-                <th>Email</th>
-                <th></th>
-            </thead>
-            <tbody *ngFor="let cars of carsArray">
-
-                <td>{{cars.fullName}}</td>
-                <td>{{cars.email}}</td>
-                <td>
-                    <button (click)="populateCars(cars)">Edit</button>
-                    <button (click)="getData()">Delete</button>
-                </td>
-            </tbody>
-        </table>
-    </div> -->
 </div>
+<ng-template #template>
+    <div class="modal-body text-center modal-template">
+        <div class="modal-header">
+            <h5 class="modal-title">Delete Fuel Log</h5>
+        </div>
+        <p>Are you sure you want to delete fuel log?</p>
+        <button type="button" class="btn btn-dark ac-home-modalBtn" (click)="decline()">No</button>
+        <button type="button" class="btn btn-primary ac-home-modalBtn" (click)="deleteLog()">Yes</button>
+    </div>
+</ng-template>

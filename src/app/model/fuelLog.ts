@@ -4,4 +4,5 @@ export interface FuelLog {
     totalCost: number;
     priceL: number;
     date: Date;
+    avgConsumption: number;
   }

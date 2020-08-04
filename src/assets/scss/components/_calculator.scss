@@ -1,0 +1,39 @@
+.#{$prefix} {
+    &-calculator {
+        min-height: 100%;
+        position: relative;
+        z-index: 1;
+        background-color: #FFF;
+
+        &-inputs {
+            margin: 10px;
+        }
+
+        &-result {
+            h4 {
+                float: right;
+                margin-top: 5%;
+
+                span {
+                    font-weight: bold;
+                }
+            }
+
+        }
+
+        &-btn {
+            button {
+                // float: right;
+                // margin-right: 15%;
+                margin-top: 5%;
+                margin: 10px;
+                // margin-bottom: 20%;
+            }
+
+        }
+
+        input {
+            margin: 5px auto;
+        }
+    }
+}

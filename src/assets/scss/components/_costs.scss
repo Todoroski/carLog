@@ -1,0 +1,37 @@
+.#{$prefix} {
+    &-cost {
+        min-height: 100%;
+        position: relative;
+        z-index: 1;
+        background-color: #FFF;
+
+        &-cards {
+            // width: 40%;
+            margin: 5%;
+        }
+
+        &-avg {
+            text-align: left;
+        }
+
+        &-more {
+            cursor: pointer;
+            color: $primary;
+        }
+
+        &-loader {
+            margin-left: 50%;
+            transform: translateX(-50%);
+            margin-top: 20%;
+            margin-bottom: 30%;
+        }
+
+        &-add {
+            width: 30px;
+            position: relative;
+            left: 60%;
+            margin-top: -20%;
+            cursor: pointer;
+        }
+    }
+}

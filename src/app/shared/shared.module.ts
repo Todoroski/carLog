@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { SharedRoutingModule } from './shared-routing.module';
 import { HeaderModule } from '../shared/header/header.module';
+import { CostLogPopupModule } from './cost-log-popup/cost-log-popup.module';
+import { FuelLogPopupModule } from './fuel-log-popup/fuel-log-popup.module';
 
 
 @NgModule({
@@ -10,10 +12,12 @@ import { HeaderModule } from '../shared/header/header.module';
   imports: [
     CommonModule,
     SharedRoutingModule,
-    HeaderModule
+    FuelLogPopupModule,
+    CostLogPopupModule,
+    HeaderModule,
   ],
   exports: [
     HeaderModule
-  ],
+  ]
 })
 export class SharedModule { }

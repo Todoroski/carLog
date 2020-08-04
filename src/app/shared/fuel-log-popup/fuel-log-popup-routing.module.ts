@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { FuelLogPopupComponent } from './fuel-log-popup.component';
 
 
-const routes: Routes = [];
+export const fuelLogRoutes: Routes = [
+  { path: 'fuel-log-popup', component: FuelLogPopupComponent },
+];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(fuelLogRoutes)],
   exports: [RouterModule]
 })
 export class FuelLogPopupRoutingModule { }

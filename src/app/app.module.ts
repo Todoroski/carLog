@@ -3,9 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PublicComponent } from './public/public.component';
 import { PublicModule } from './public/public.module';
-import { HeaderComponent } from './shared/header/header.component';
 import { SharedModule } from '../app/shared/shared.module';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -13,6 +11,8 @@ import { environment } from '../environments/environment';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import { ToastrModule } from 'ngx-toastr';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     PublicModule,
     SharedModule,
@@ -27,6 +28,7 @@ import { ToastrModule } from 'ngx-toastr';
     AngularFireDatabaseModule,
     ModalModule.forRoot(),
     BrowserAnimationsModule,
+    HttpClientModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
     })
