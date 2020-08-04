@@ -15,7 +15,7 @@ import { ToastrService } from 'ngx-toastr';
 export class HomeComponent implements OnInit {
 
   constructor(private firebase: AngularFireDatabase, private modalService: BsModalService, private fuelLogService: FuelLogService,
-    private toastr: ToastrService) { }
+              private toastr: ToastrService) { }
 
   fuelLogList;
   submitted: boolean;
@@ -72,10 +72,6 @@ export class HomeComponent implements OnInit {
 
   toggle(): void {
     this.max = this.max + 5;
-  }
-
-  getData() {
-    console.log(this.fuelLogArray);
   }
 
   deleteLog() {

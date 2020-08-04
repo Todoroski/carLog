@@ -5,11 +5,14 @@
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
+        <div class="col-lg-5 offset-lg-8 ac-cost-search" *ngIf="!loading">
+            <input type="search" placeholder="Search By Title" [(ngModel)]="searchData">
+        </div>
         <div class="ac-cost-cards col-lg-5 col-md-4 col-sm-10" *ngIf="!loading">
             <h3>Cost Logs</h3>
             <div><img src="../../../assets/plusSign.png" alt="" class="ac-cost-add" (click)="addCostLog()"
                     data-toggle="tooltip" data-placement="top" title="Add New Cost"></div>
-            <div class="tile" *ngFor="let costLog of costLogArray  | slice:0:[max]">
+            <div class="tile" *ngFor="let costLog of costLogArray  | slice:0:[max] | filter:searchData">
                 <div class="wrapper">
                     <div class="header"><i class='fas fa-gas-pump' style='font-size:35px;color:#383d3b'></i></div>
                     <div class="stats">

@@ -12,6 +12,7 @@ import { FuelLogPopupModule } from '../shared/fuel-log-popup/fuel-log-popup.modu
 import { CostLogModule } from './cost-log/cost-log.module';
 import { CalculatorModule } from './calculator/calculator.module';
 import { FormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { FormsModule } from '@angular/forms';
     HeaderModule,
     FuelLogPopupModule,
     CostLogModule,
+    Ng2SearchPipeModule,
     CalculatorModule
   ]
 })

@@ -26,7 +26,6 @@ export class CalculatorComponent implements OnInit {
     this.fuelLogService.getFuelLogs().subscribe(data => {
       this.fuelLogArray = Object.values(data);
       this.getAvgConsumption();
-      console.log(this.fuelLogArray);
     });
   }
 
@@ -36,7 +35,6 @@ export class CalculatorComponent implements OnInit {
       this.avgCounter += +data.avgConsumption;
     }
     this.avgConsumption = (this.avgCounter / (this.fuelLogArray.length - 1)).toFixed(2);
-    console.log(this.avgConsumption);
   }
 
   tripResult() {

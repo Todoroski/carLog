@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef} from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { ToastrService } from 'ngx-toastr';
@@ -23,9 +23,11 @@ export class CostLogComponent implements OnInit {
   template: TemplateRef<any>;
   loading: boolean;
   showMore: boolean;
+  searchData;
+  nesto;
 
   constructor(private firebase: AngularFireDatabase, private toastr: ToastrService,
-              private costLogService: CostLogService, private modalService: BsModalService) { }
+    private costLogService: CostLogService, private modalService: BsModalService) { }
 
   ngOnInit() {
     this.loading = true;
@@ -77,5 +79,24 @@ export class CostLogComponent implements OnInit {
 
   toggle(): void {
     this.max = this.max + 5;
+  }
+
+  searchByTitle(searchData) {
+    debugger
+    if (this.searchData === '') {
+      this.ngOnInit();
+    } else {
+      this.costLogArray = this.costLogArray.filter((costLog) => {
+        return costLog.title === searchData;
+      });
+    }
+
+  }
+
+  checkInput() {
+    debugger
+    if (this.searchData.trim() === '') {
+      this.ngOnInit();
+    }
   }
 }

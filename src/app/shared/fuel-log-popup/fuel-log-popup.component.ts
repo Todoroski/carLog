@@ -58,13 +58,12 @@ export class FuelLogPopupComponent implements OnInit {
     } else {
       this.avgConsumption = 0;
     }
-
     this.fuelData = {
       odoCounter: fuelLog.odoCounter,
       fuel: fuelLog.fuel,
       cost: fuelLog.cost,
       price: fuelLog.price,
-      date: new Date().toISOString().slice(0, 10),
+      date: fuelLog.date.slice(0, 10),
       avgConsumption: this.avgConsumption.toFixed(2)
     };
     this.fuelLogService.addFuelLog(this.fuelData).subscribe((data: FuelLog) => {
@@ -102,7 +101,6 @@ export class FuelLogPopupComponent implements OnInit {
     this.fuelLogService.updateFuelLog(this.fuelData, fuelLog.$key).subscribe((data: FuelLog) => {
       this.showToastr('Fuel log successfully updated');
       this.closeModal();
-      console.log(data);
     }, error => {
       this.toastr.error('Fuel log not updated');
 
