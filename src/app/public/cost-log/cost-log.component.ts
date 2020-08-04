@@ -80,23 +80,4 @@ export class CostLogComponent implements OnInit {
   toggle(): void {
     this.max = this.max + 5;
   }
-
-  searchByTitle(searchData) {
-    debugger
-    if (this.searchData === '') {
-      this.ngOnInit();
-    } else {
-      this.costLogArray = this.costLogArray.filter((costLog) => {
-        return costLog.title === searchData;
-      });
-    }
-
-  }
-
-  checkInput() {
-    debugger
-    if (this.searchData.trim() === '') {
-      this.ngOnInit();
-    }
-  }
 }
