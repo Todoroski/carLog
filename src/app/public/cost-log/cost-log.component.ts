@@ -17,7 +17,7 @@ export class CostLogComponent implements OnInit {
   max = 5;
   costLogList: AngularFireList<any>;
   submitted: boolean;
-  costLogArray: CostLog [];
+  costLogArray: CostLog[];
   id;
   avgConsumption: number;
   modalRef: BsModalRef;
@@ -25,9 +25,10 @@ export class CostLogComponent implements OnInit {
   loading: boolean;
   showMore: boolean;
   searchData: string;
+  tableView: boolean;
 
   constructor(private firebase: AngularFireDatabase, private toastr: ToastrService,
-              private costLogService: CostLogService, private modalService: BsModalService) { }
+    private costLogService: CostLogService, private modalService: BsModalService) { }
 
   ngOnInit() {
     this.loading = true;
@@ -75,6 +76,10 @@ export class CostLogComponent implements OnInit {
 
   showToastr(message) {
     this.toastr.success(message);
+  }
+
+  tableViewData() {
+    this.tableView ? this.tableView = false : this.tableView = true;
   }
 
   toggle(): void {

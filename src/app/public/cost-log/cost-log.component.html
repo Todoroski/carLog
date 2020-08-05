@@ -5,10 +5,13 @@
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
+        <button class="btn btn-dark mt-3 ml-5" (click)="tableViewData()" *ngIf="!loading">Change View</button>
+        <div *ngIf="tableView" class="mt-3"><img src="../../../assets/plusSign.png" alt="" class="ac-cost-add" (click)="addCostLog()"
+            data-toggle="tooltip" data-placement="top" title="Add New Cost"></div>
         <div class="col-lg-5 offset-lg-8 ac-cost-search" *ngIf="!loading">
             <input type="search" placeholder="Search" [(ngModel)]="searchData">
         </div>
-        <div class="ac-cost-cards col-lg-5 col-md-4 col-sm-10" *ngIf="!loading">
+        <div class="ac-cost-cards col-lg-5 col-md-4 col-sm-10" *ngIf="!loading && !tableView">
             <h3>Cost Logs</h3>
             <div><img src="../../../assets/plusSign.png" alt="" class="ac-cost-add" (click)="addCostLog()"
                     data-toggle="tooltip" data-placement="top" title="Add New Cost"></div>
@@ -46,6 +49,33 @@
             </div>
             <button *ngIf="showMore" class="ac-cost-more btn btn-light" (click)="toggle()">Show more</button>
         </div>
+        <div class="ac-cost-table col-lg-12 col-md-12 col-sm-10 mt-5">
+            <table class="table" *ngIf="tableView">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Odo Counter</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Total Cost</th>
+                        <th scope="col">Note</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let costLog of costLogArray | filter:searchData">
+                    <tr>
+                        <td>{{costLog.odoCounter}} km</td>
+                        <td>{{costLog.title}}</td>
+                        <td>{{costLog.totalCost}}</td>
+                        <td>{{costLog.note}}</td>
+                        <td>{{costLog.date}}</td>
+                        <td><button class="btn btn-dark" (click)="addCostLog(costLog)">Edit</button>
+                            <button class="btn btn-danger mt-1" (click)="openModal(template, costLog.$key)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
     </div>
 </div>
 

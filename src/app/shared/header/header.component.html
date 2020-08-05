@@ -20,7 +20,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" [routerLink]="['/']" routerLinkActive="router-link-active">Fuel log</a>
+                            <a class="nav-link" [routerLink]="['/']" routerLinkActive="router-link-active"   [routerLinkActiveOptions]="{ exact: true }">Fuel log</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" [routerLink]="['/costLog']">Costs</a>
