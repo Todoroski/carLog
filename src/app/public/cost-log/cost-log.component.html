@@ -11,14 +11,14 @@
         <div class="col-lg-5 offset-lg-8 ac-cost-search" *ngIf="!loading">
             <input type="search" placeholder="Search" [(ngModel)]="searchData">
         </div>
-        <div class="ac-cost-cards col-lg-5 col-md-4 col-sm-10" *ngIf="!loading && !tableView">
+        <div class="ac-cost-cards col-lg-10 col-md-10 col-sm-10" *ngIf="!loading && !tableView">
             <h3>Cost Logs</h3>
             <div><img src="../../../assets/plusSign.png" alt="" class="ac-cost-add" (click)="addCostLog()"
                     data-toggle="tooltip" data-placement="top" title="Add New Cost"></div>
             <div class="tile" *ngFor="let costLog of costLogArray  | slice:0:[max] | filter:searchData">
                 <div class="wrapper">
-                    <div class="header"><i class='fas fa-gas-pump' style='font-size:35px;color:#383d3b'></i></div>
-                    <div class="stats">
+                    <div class="ac-cost-header"><i class='fas fa-gas-pump' style='font-size:35px;color:#383d3b'></i></div>
+                    <div class="ac-cost-logs">
                         <div>
                             <strong>Odo Counter</strong>
                             {{costLog.odoCounter}}
@@ -31,7 +31,7 @@
                             <strong>Cost:</strong> {{costLog.totalCost}} &euro;
                         </div>
                     </div>
-                    <div class="stats">
+                    <div class="ac-cost-logs">
                         <div>
                             <strong>Note</strong>
                             {{costLog.note}}
@@ -41,9 +41,9 @@
                             {{costLog.date}}
                         </div>
                     </div>
-                    <div class="footer">
-                        <a class="Cbtn Cbtn-primary" (click)="addCostLog(costLog)">Edit</a>
-                        <a class="Cbtn Cbtn-danger" (click)="openModal(template, costLog.$key)">Delete</a>
+                    <div class="ac-cost-footer">
+                        <a class="ac-cost-footer-btn-primary" (click)="addCostLog(costLog)">Edit</a>
+                        <a class="ac-cost-footer-btn-danger" (click)="openModal(template, costLog.$key)">Delete</a>
                     </div>
                 </div>
             </div>

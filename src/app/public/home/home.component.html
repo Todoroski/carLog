@@ -5,14 +5,14 @@
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
-        <div class="ac-home-cards col-lg-5 col-md-4 col-sm-10" >
+        <div class="ac-home-cards ac-home-cards-fuelLogCards col-lg-10 col-md-10 col-sm-10">
             <h3>Fuel Logs</h3>
             <div><img src="../../../assets/plusSign.png" alt="" class="ac-home-add" (click)="addFIllUp()"
                     data-toggle="tooltip" data-placement="top" title="Add Fill Up"></div>
-            <div class="tile" *ngFor="let fuelLog of fuelLogArray  | slice:0:[max]">
+            <div class="ac-home-tile" *ngFor="let fuelLog of fuelLogArray  | slice:0:[max]">
                 <div class="wrapper">
-                    <div class="header"><i class='fas fa-gas-pump' style='font-size:35px;color:#383d3b'></i></div>
-                    <div class="stats">
+                    <div class="ac-home-header"><i class='fas fa-gas-pump' style='font-size:35px;color:#383d3b'></i></div>
+                    <div class="ac-home-logs">
                         <div>
                             <strong>Odo Counter</strong>
                             {{fuelLog.odoCounter}}
@@ -25,7 +25,7 @@
                             <strong>Total Cost:</strong> {{fuelLog.cost}} &euro;
                         </div>
                     </div>
-                    <div class="stats">
+                    <div class="ac-home-logs">
                         <div>
                             <strong>Price(l)</strong>
                             {{fuelLog.price}} &euro;
@@ -39,20 +39,20 @@
                             {{fuelLog.avgConsumption}}
                         </div>
                     </div>
-                    <div class="footer">
-                        <a class="Cbtn Cbtn-primary" (click)="addFIllUp(fuelLog)">Edit</a>
-                        <a class="Cbtn Cbtn-danger" (click)="openModall(template, fuelLog.$key)">Delete</a>
+                    <div class="ac-home-footer">
+                        <a class="ac-home-footer-btn-primary" (click)="addFIllUp(fuelLog)">Edit</a>
+                        <a class="ac-home-footer-btn-danger" (click)="openModall(template, fuelLog.$key)">Delete</a>
                     </div>
                 </div>
             </div>
             <button *ngIf="showMore" class="ac-home-more btn btn-light" (click)="toggle()">Show more</button>
         </div>
-        <div class="ac-home-cards col-lg-4 col-md-4 col-sm-10" *ngIf="!loading">
+        <div class="ac-home-cards col-lg-10 col-md-10 col-sm-10 ac-home-statistic" *ngIf="!loading">
             <h3>Statistics</h3>
-            <div class="tile">
+            <div class="ac-home-tile">
                 <div class="wrapper">
-                    <div class="header"><i class="fa fa-bar-chart" style='font-size:35px;color:#383d3b'></i></div>
-                    <div class="stats">
+                    <div class="ac-home-header"><i class="fa fa-bar-chart" style='font-size:35px;color:#383d3b'></i></div>
+                    <div class="ac-home-stats">
                         <div>
                             <strong>Average fuel consumption</strong>
                             {{avgConsumption}} l/100 km
@@ -65,13 +65,14 @@
                             <strong>Last Fuel Price</strong>
                             {{fuelLogArray[0].price}} &euro;
                         </div>
-                    </div>
-                    <div class="stats">
                         <div>
                             <strong>Last Fill Up</strong>
                             {{lastFillUp}} l
                         </div>
                     </div>
+                    <!-- <div class="stats"> -->
+
+                    <!-- </div> -->
                 </div>
             </div>
         </div>
