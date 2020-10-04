@@ -45,6 +45,7 @@ export class FuelLogPopupComponent implements OnInit {
           };
         }).sort((a, b) => b.odoCounter - a.odoCounter);
         await this.populatePopup(this.fuelLogService.fuelLogId);
+        this.id = this.fuelLogService.fuelLogId;
       }
     );
   }

@@ -39,6 +39,7 @@ export class CostLogPopupComponent implements OnInit {
           };
         }).sort((a, b) => b.odoCounter - a.odoCounter);
         await this.populatePopup(this.costLogService.costLogId);
+        this.id = this.costLogService.costLogId;
       }
     );
   }
